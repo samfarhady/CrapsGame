@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Craps Game</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <h1 id="main_header"> Current Roll</h1>
+    <div class="dices">
+        <img src="/Dice/dice1.png" id="img1" alt="dice1" class="dices">
+        <img src="/Dice/dice2.png" id="img2" alt= "dice2" class="dices">
+    </div>
+    <div class="scoreboard">
+        <h2 id="score"></h2>
+    </div>
+    <button id="btn" onclick="crapsGame()" class="roll_dice">Roll Dice</button>
+    <script type="text/javascript">
+
+        let firstRoll = true;
+        function crapsGame() {
+            let firstDice = Math.floor((Math.random() * 6) + 1);
+            let dice1PNG = '/Dice/dice' + firstDice + '.png';
+            let image1 = document.getElementById('img1');
+            image1.src = dice1PNG;
+
+            let secondDice = Math.floor((Math.random() * 6) + 1);
+            let dice2PNG = '/Dice/dice' + secondDice + '.png';
+            let image2 = document.getElementById('img2');
+            image2.src = dice2PNG;
+
+            let rollTotal = firstDice + secondDice;
+
+            if (firstRoll === true) {
+                if(rollTotal === 7 || rollTotal === 11) {
+                    document.getElementById("score").innerHTML="You've won the game with a " + rollTotal + "!"
+                    setTimeout(function(){window.location.reload();}, 2000);
+                }
+                else if(rollTotal === 2 || rollTotal === 3 || rollTotal === 12) {
+                    document.getElementById("score").innerHTML="You've lost the game with a " + rollTotal
+                    setTimeout(function(){window.location.reload();}, 2000);
+                }
+                else {
+                    firstRoll = false;
+                    document.getElementById("score").innerHTML= "Your current point is " + rollTotal +
+                        ". Keep going until you get this point"
+                    currentPoint = rollTotal
+                }
+            }
+            else {
+                if(rollTotal === currentPoint) {
+                    firstRoll = true;
+                    document.getElementById("score").innerHTML="You won!"
+                    setTimeout(function(){window.location.reload();}, 2000);
+                }
+                if(rollTotal === 7){
+                    firstRoll = true
+                    document.getElementById("score").innerHTML="You've lost the game with a " + rollTotal
+                    setTimeout(function(){window.location.reload();}, 2000);
+                }
+            }
+            }
+    </script>
+</body>
+</html>

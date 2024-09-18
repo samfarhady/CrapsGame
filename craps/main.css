@@ -1,0 +1,42 @@
+#main_header {
+    color: teal;
+    text-align: center;
+    font-size: xxx-large;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+body {
+    background-color: turquoise;
+}
+.scoreboard{
+    font-size: x-large;
+    background-color: turquoise;
+    color: teal;
+    display: block;
+    margin-top: 50px;
+    text-align: center;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+button{
+    display: block;
+    margin: auto;
+    border-color: teal;
+    border-style: solid;
+    border-radius: 10px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+.dices{
+    display: flex;
+    width: 250px;
+    height: 250px;
+    margin-left: 25%;
+    column-gap: 35px;
+    border-radius: 43px;
+}
+.roll_dice {
+    font-size: x-large;
+    background-color: aqua;
+    color: teal;
+    display: block;
+    margin-top: 80px;
+}
